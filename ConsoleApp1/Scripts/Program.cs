@@ -9,7 +9,10 @@ namespace ConsoleApp1
     {
         public static tosave[] savejr; //Array of the saves that are read from the save file location
 
-        public static string savdir = @"D:\Program\Scuffed Saves"; //string that specificies the begining of the save location(savedirectory)
+        public static string username = Environment.UserName;
+
+
+        public static string savdir = @"C:\Users\"+username+@"\Saved Games"; //string that specificies the begining of the save location(savedirectory)
 
         public static Menue menu = new Menue(); //Instance of the Menu class
         public static tosave save; //instance of the tosave class
@@ -21,9 +24,11 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             //This section is for setting the programs size and title settings
-            Console.WindowWidth = 191; 
-            Console.WindowHeight = 54;                  
+            Console.WindowWidth = Console.LargestWindowWidth; 
+            Console.WindowHeight = Console.LargestWindowHeight;     
             Console.Title = "Scuffed Adventures";
+
+            Console.WriteLine(username);
 
             savejr = tosave.inread(); //Sets the save file array equal to whatever is read from the file location
             save = menu.Menu(); //Honestly no clue

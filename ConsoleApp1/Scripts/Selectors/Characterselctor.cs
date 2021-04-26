@@ -7,6 +7,7 @@ namespace ConsoleApp1.Scripts
     {
         public static Character charselect()
         {
+            Progress specdes = new Progress();
             Character khar = new Character();
             bool charloop = true;
             while (charloop)
@@ -47,7 +48,6 @@ namespace ConsoleApp1.Scripts
                                 Console.ForegroundColor = ConsoleColor.Gray;
                                 Console.WriteLine(" I have some questions for you");
                                 Console.Write("If you had to chose a nice outfit, which one would you chose");
-                                Console.ReadLine();
                                 khar.outfit = outselect();
                                 charloop = false;
                                 break;
@@ -80,7 +80,6 @@ namespace ConsoleApp1.Scripts
                                 Console.ForegroundColor = ConsoleColor.Gray;
                                 Console.WriteLine(" I have some questions for you");
                                 Console.Write("If you had to chose a nice outfit, which one would you chose");
-                                Console.ReadLine();
                                 khar.outfit = outselect();
                                 charloop = false;
                                 break;
@@ -112,7 +111,6 @@ namespace ConsoleApp1.Scripts
                                 Console.ForegroundColor = ConsoleColor.Gray;
                                 Console.WriteLine(" I have some questions for you");
                                 Console.Write("If you had to chose a nice outfit, which one would you chose");
-                                Console.ReadLine();
                                 khar.outfit = outselect();
                                 charloop = false;
                                 break;
@@ -120,7 +118,11 @@ namespace ConsoleApp1.Scripts
                         break;
                     case "4":
                     case "INFO ON SPECIES":
-                        Descriptors.specdes();
+                        for (int i = 0; i < specdes.SpeciesDes.Count; i++)
+                        {
+                            Console.WriteLine(specdes.SpeciesDes[i]);
+                        }
+                        Console.ReadLine();
                         break;
                     case "OWO":
                         Console.ForegroundColor = ConsoleColor.Magenta;
@@ -138,7 +140,6 @@ namespace ConsoleApp1.Scripts
                                 Console.WriteLine(khar.name.ToUpper() + " Thats a neat name...\nfor a cat");
                                 Console.WriteLine("Well Mr." + khar.name.ToUpper() + " I have some questions for you");
                                 Console.Write("If you had to chose a nice outfit, which one would you chose");
-                                Console.ReadLine();
                                 khar.outfit = outselect();
                                 break;
                             case "N":
@@ -168,6 +169,7 @@ namespace ConsoleApp1.Scripts
         }
         public static Outfit outselect()
         {
+            Progress outdes = new Progress();
             bool outloop = true;
             Outfit outfit1 = new Outfit();
             while (outloop)
@@ -241,7 +243,11 @@ namespace ConsoleApp1.Scripts
                         break;
                     case "5":
                     case "INFO ON DESRIPTION":
-                        Descriptors.outdes();
+                        for (int i = 0; i < outdes.SpeciesDes.Count; i++)
+                        {
+                            Console.WriteLine(outdes.SpeciesDes[i]);
+                        }
+                        Console.ReadLine();
                         break;
                     default:
                         Console.WriteLine("You did not chose an option. Do you want to try agian?[y/n]");

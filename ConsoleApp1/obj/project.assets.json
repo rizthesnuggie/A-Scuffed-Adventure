@@ -296,19 +296,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Aiden\\.nuget\\packages\\": {}
+    "C:\\Users\\aiden\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Program\\Scuffed-Adventures\\ConsoleApp1\\ConsoleApp1.csproj",
+      "projectUniqueName": "C:\\Users\\aiden\\Documents\\GitHub\\Scuffed-Adventures\\ConsoleApp1\\ConsoleApp1.csproj",
       "projectName": "ConsoleApp1",
-      "projectPath": "D:\\Program\\Scuffed-Adventures\\ConsoleApp1\\ConsoleApp1.csproj",
-      "packagesPath": "C:\\Users\\Aiden\\.nuget\\packages\\",
-      "outputPath": "D:\\Program\\Scuffed-Adventures\\ConsoleApp1\\obj\\",
+      "projectPath": "C:\\Users\\aiden\\Documents\\GitHub\\Scuffed-Adventures\\ConsoleApp1\\ConsoleApp1.csproj",
+      "packagesPath": "C:\\Users\\aiden\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\aiden\\Documents\\GitHub\\Scuffed-Adventures\\ConsoleApp1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Aiden\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\aiden\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -354,7 +354,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.202\\RuntimeIdentifierGraph.json"
       }
     }
   }

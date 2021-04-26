@@ -107,8 +107,11 @@ namespace ConsoleApp1.Scripts
 
     public class Progress
     {
+        public List<string> SpeciesDes { get; set; } = new List<string> { "The race of Men are an intresting bunch. They are known for their capacity for incredible violence but also amazing feats of strength and camaraderie and loyalty", "The dawrves are always involded in the talk of the land. Known for their Strength, Charisma, and powerful greed. They can be good friends but also terrible enimies", "Elfs are the most recluse bunch in the land. Known for their Speed, Stealth, and terrible social skills. It's always good to have an elf at your side, even if you can't talk to them", "Press any key to continue"};
+        public List<string> OutfitDes { get; set; } = new List<string> { "The Shiny Armor is a good all around armor. It allows you to have a moderate amount of protection with some benifits towards speed *and* stealth.", "The Brute Armor is a tough armor made for only the strongest of warriors. It offers a large amount of protection but at the cost of speed *and* stealth.", "The Shadow Cloak is a Hooded Cloak made in darkness. It allows its wearer to blend into the shadows but to be stealthy you must give up some strength *and* speed", "The Light Armor is the best option for an adventurer always on the go. It's lightness allows for quicker movement but at the cost of strength *and* stealth", "Press any key to continue"};
+
         public List<string> SadieConvo { get; set; } = new List<string> {"Greet her","Ask about the house","Ask about the door downstairs", "Leave" };
         public List<string> caveoptions { get; set; } = new List<string> { "Go upstairs", "Try to open the door", "Feel around the room to find more stuff" };
-        public List<string> LRoptions { get; set; } = new List<string> { "Go upstairs", "Go downstairs","Talk to the old women","Raid the cubbard","Check the fireplace","Leave" };
+        public List<string> LRoptions { get; set; } = new List<string> { "Go upstairs", "Go downstairs","Talk to the old women","Raid the cubbard","Check the fireplace",};
     }
  }
