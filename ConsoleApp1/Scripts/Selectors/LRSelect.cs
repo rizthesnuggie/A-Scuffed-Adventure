@@ -34,10 +34,38 @@ namespace ConsoleApp1.Scripts.Selectors
                         SadieManager.SadieConvo();
                         break;
                     case "RAID THE CUBBARD":
-
+                        bool meatpic = true;
+                        while (meatpic)
+                        {
+                            if (!Program.save.player.inventory.storage.Contains("Meat Slab")) //If the player does not have the meat slab in inventory then they can interact
+                            {
+                                Console.WriteLine("Checking out the old cubbard you find a large slab of meat that looks like it has been there a while. Do you want to take it?[y/n]");
+                                string answer = invencontroler.betterreadline();
+                                if (answer.ToUpper() == "Y")
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                    Console.WriteLine("Meat Slab has been added to your inventory");
+                                    Program.save.player.inventory.storage.Add("Meat Slab");
+                                    Program.save.invsave();
+                                    Console.ResetColor();
+                                    meatpic = false;
+                                }
+                                else if (answer.ToUpper() == "N")
+                                {
+                                    Console.WriteLine("You leave the cubbard");
+                                    meatpic = false;
+                                }
+                            }
+                            else if (Program.save.player.inventory.storage.Contains("Meat Slab")) //If they do it leaves the loop
+                            {
+                                Console.WriteLine("You have already checked out this cubbard");
+                                Program.save.invsave();
+                                meatpic = false;
+                            }
+                        }
                         break;
                     case "CHECK THE FIREPLACE":
-
+                        Console.WriteLine("You walk over to the fireplace, It looks like it hasn't been used in years and the bottom is odly made of a flimsy looking plywood");
                         break;
                 }
             }
