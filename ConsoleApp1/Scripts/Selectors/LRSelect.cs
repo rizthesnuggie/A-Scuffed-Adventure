@@ -69,7 +69,7 @@ namespace ConsoleApp1.Scripts.Selectors
                         break;
                 }
             }
-        AfLR:;
+        AfLR: AtticSelector.intoAttic(); ;
         CfLR: CaveSelect.intocave();
         }
     }

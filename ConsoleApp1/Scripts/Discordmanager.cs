@@ -50,6 +50,9 @@ namespace ConsoleApp1.Scripts
                     case "DUNGEON":
                         client.UpdateDetails("In the Dungeon");
                         break;
+                    case "ATTIC":
+                        client.UpdateDetails("In the Attic");
+                        break;
 
                 }
                 client.UpdateState(Program.save.player.stat.Playerhealth.ToString() + "Hp");

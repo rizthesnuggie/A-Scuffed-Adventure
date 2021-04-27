@@ -24,10 +24,13 @@ namespace ConsoleApp1.Scripts
                     goto LRsave;
                 case "DUNGEON":
                     goto Dsave;
+                case "ATTIC":
+                    goto Asave;
             }
         cavesave: CaveSelect.intocave();
         LRsave: LRSelect.intoLR();
         Dsave: DungeonSelect.intoDungeon();
+        Asave: AtticSelector.intoAttic();
         }
     }
 }

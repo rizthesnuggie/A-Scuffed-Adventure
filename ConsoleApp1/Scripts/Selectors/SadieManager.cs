@@ -6,9 +6,6 @@ namespace ConsoleApp1.Scripts.Selectors
 {
     public static class SadieManager
     {
-        public static bool isSadieok;
-        public static bool hasSadieTroll;
-
         public static void SadieConvo()
         {
 
@@ -38,9 +35,13 @@ namespace ConsoleApp1.Scripts.Selectors
                     case "ASK ABOUT THE HOUSE":
                         PrintSadie("Well, this house is very old. It was originally built after the last stellar event with only one story. As you can see we've made alot of changes since then.");
                         break;
+                    case "ASK ABOUT THE UPSTAIRS":
+                        PrintSadie("My parents added that when I was a little girl, Now that old hag stays up there most of the time.");
+                        Program.save.player.npc.hasSadiehag = true;
+                        break;
                     case "ASK ABOUT THE DOOR DOWNSTAIRS":
                         PrintSadie("Oh that old thing, It is an old bunker made to withstand the next stellar event. Of course I don't think there wil ever be another but having it doesn't hurt");
-                        hasSadieTroll = true;
+                        Program.save.player.npc.hasSadieTroll = true;
                         break;
                     case "LEAVE":
                         sadieconvobool = false;
@@ -48,7 +49,7 @@ namespace ConsoleApp1.Scripts.Selectors
                 }
             }
         }
-
+       
         public static void  PrintSadie(string s)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
