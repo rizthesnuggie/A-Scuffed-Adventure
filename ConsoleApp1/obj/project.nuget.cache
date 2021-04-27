@@ -1,15 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "dSrLnXnN/ULWSP1FKNel9DmfDJUFXubuDLmTGlPnpa9Mxee88XgsWPXRkVXAoV7/EpcmaZLvHeFu+f6Qi6J/zw==",
+  "dgSpecHash": "r/cgECg/6DwfVLSEGQLrJfN0oFO5jbl0jPv47c6YTPJ+qg/j4MhqMysK7AityqgXCPxwCAXwEg4BEFITlflAuA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\aiden\\Documents\\GitHub\\Scuffed-Adventures\\ConsoleApp1\\ConsoleApp1.csproj",
+  "projectFilePath": "D:\\Program\\Scuffed-Adventures\\ConsoleApp1\\ConsoleApp1.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\aiden\\.nuget\\packages\\discordrichpresence\\1.0.175\\discordrichpresence.1.0.175.nupkg.sha512",
-    "C:\\Users\\aiden\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
-    "C:\\Users\\aiden\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
-    "C:\\Users\\aiden\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
-    "C:\\Users\\aiden\\.nuget\\packages\\system.security.accesscontrol\\4.5.0\\system.security.accesscontrol.4.5.0.nupkg.sha512",
-    "C:\\Users\\aiden\\.nuget\\packages\\system.security.principal.windows\\4.5.0\\system.security.principal.windows.4.5.0.nupkg.sha512"
+    "C:\\Users\\Aiden\\.nuget\\packages\\discordrichpresence\\1.0.175\\discordrichpresence.1.0.175.nupkg.sha512",
+    "C:\\Users\\Aiden\\.nuget\\packages\\microsoft.netcore.platforms\\2.0.0\\microsoft.netcore.platforms.2.0.0.nupkg.sha512",
+    "C:\\Users\\Aiden\\.nuget\\packages\\microsoft.win32.registry\\4.5.0\\microsoft.win32.registry.4.5.0.nupkg.sha512",
+    "C:\\Users\\Aiden\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
+    "C:\\Users\\Aiden\\.nuget\\packages\\system.security.accesscontrol\\4.5.0\\system.security.accesscontrol.4.5.0.nupkg.sha512",
+    "C:\\Users\\Aiden\\.nuget\\packages\\system.security.principal.windows\\4.5.0\\system.security.principal.windows.4.5.0.nupkg.sha512"
   ],
   "logs": []
 }
