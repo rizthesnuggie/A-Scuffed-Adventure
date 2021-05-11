@@ -47,7 +47,7 @@ namespace ConsoleApp1.Scripts
                                 Console.Write(khar.name.ToUpper());
                                 Console.ForegroundColor = ConsoleColor.Gray;
                                 Console.WriteLine(" I have some questions for you");
-                                Console.Write("If you had to chose a nice outfit, which one would you chose");
+                                Console.WriteLine("If you had to chose a nice outfit, which one would you chose");
                                 khar.outfit = outselect();
                                 charloop = false;
                                 break;
@@ -79,7 +79,7 @@ namespace ConsoleApp1.Scripts
                                 Console.Write(khar.name.ToUpper());
                                 Console.ForegroundColor = ConsoleColor.Gray;
                                 Console.WriteLine(" I have some questions for you");
-                                Console.Write("If you had to chose a nice outfit, which one would you chose");
+                                Console.WriteLine("If you had to chose a nice outfit, which one would you chose");
                                 khar.outfit = outselect();
                                 charloop = false;
                                 break;
@@ -110,7 +110,7 @@ namespace ConsoleApp1.Scripts
                                 Console.Write(khar.name.ToUpper());
                                 Console.ForegroundColor = ConsoleColor.Gray;
                                 Console.WriteLine(" I have some questions for you");
-                                Console.Write("If you had to chose a nice outfit, which one would you chose");
+                                Console.WriteLine("If you had to chose a nice outfit, which one would you chose");
                                 khar.outfit = outselect();
                                 charloop = false;
                                 break;
@@ -139,7 +139,7 @@ namespace ConsoleApp1.Scripts
                                 khar.name = Console.ReadLine();
                                 Console.WriteLine(khar.name.ToUpper() + " Thats a neat name...\nfor a cat");
                                 Console.WriteLine("Well Mr." + khar.name.ToUpper() + " I have some questions for you");
-                                Console.Write("If you had to chose a nice outfit, which one would you chose");
+                                Console.WriteLine("If you had to chose a nice outfit, which one would you chose");
                                 khar.outfit = outselect();
                                 break;
                             case "N":

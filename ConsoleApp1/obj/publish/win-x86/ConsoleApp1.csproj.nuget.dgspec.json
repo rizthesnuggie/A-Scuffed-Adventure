@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Program\\ConsoleApp1\\ConsoleApp1.csproj": {}
+    "D:\\Program\\Scuffed-Adventures\\ConsoleApp1\\ConsoleApp1.csproj": {}
   },
   "projects": {
-    "D:\\Program\\ConsoleApp1\\ConsoleApp1.csproj": {
+    "D:\\Program\\Scuffed-Adventures\\ConsoleApp1\\ConsoleApp1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Program\\ConsoleApp1\\ConsoleApp1.csproj",
+        "projectUniqueName": "D:\\Program\\Scuffed-Adventures\\ConsoleApp1\\ConsoleApp1.csproj",
         "projectName": "ConsoleApp1",
-        "projectPath": "D:\\Program\\ConsoleApp1\\ConsoleApp1.csproj",
+        "projectPath": "D:\\Program\\Scuffed-Adventures\\ConsoleApp1\\ConsoleApp1.csproj",
         "packagesPath": "C:\\Users\\Aiden\\.nuget\\packages\\",
-        "outputPath": "D:\\Program\\ConsoleApp1\\obj\\publish\\win-x86\\",
+        "outputPath": "D:\\Program\\Scuffed-Adventures\\ConsoleApp1\\obj\\publish\\win-x86\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Aiden\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -26,6 +26,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -37,6 +38,13 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "DiscordRichPresence": {
+              "target": "Package",
+              "version": "[1.0.175, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -50,15 +58,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Runtime.win-x86",
-              "version": "[3.1.12, 3.1.12]"
+              "version": "[3.1.13, 3.1.13]"
             },
             {
               "name": "Microsoft.NETCore.App.Runtime.win-x86",
-              "version": "[3.1.12, 3.1.12]"
+              "version": "[3.1.13, 3.1.13]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Runtime.win-x86",
-              "version": "[3.1.12, 3.1.12]"
+              "version": "[3.1.13, 3.1.13]"
             }
           ],
           "frameworkReferences": {
@@ -66,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.406\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

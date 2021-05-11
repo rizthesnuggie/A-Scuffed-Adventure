@@ -1,7 +1,9 @@
 ﻿using ConsoleApp1.Scripts;
 using ConsoleApp1.Scripts.Selectors;
 using System;
+using System.IO;
 using System.Threading.Tasks;
+
 
 namespace ConsoleApp1
 {
@@ -10,9 +12,7 @@ namespace ConsoleApp1
         public static tosave[] savejr; //Array of the saves that are read from the save file location
 
         public static string username = Environment.UserName;
-
-
-        public static string savdir = @"C:\Users\"+username+@"\Saved Games"; //string that specificies the begining of the save location(savedirectory)
+        public static string savdir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\ScuffedAdventures"; //string that specificies the begining of the save location(savedirectory)
 
         public static Menue menu = new Menue(); //Instance of the Menu class
         public static tosave save; //instance of the tosave class
@@ -29,6 +29,10 @@ namespace ConsoleApp1
             Console.Title = "Scuffed Adventures";
 
             Console.WriteLine(username);
+            if(!Directory.Exists(savdir))
+            {
+                Directory.CreateDirectory(savdir);
+            }
 
             savejr = tosave.inread(); //Sets the save file array equal to whatever is read from the file location
             save = menu.Menu(); //Honestly no clue
