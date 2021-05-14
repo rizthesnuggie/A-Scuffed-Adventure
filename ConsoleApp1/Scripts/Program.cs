@@ -11,7 +11,6 @@ namespace ConsoleApp1
     {
         public static tosave[] savejr; //Array of the saves that are read from the save file location
 
-        public static string username = Environment.UserName;
         public static string savdir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\ScuffedAdventures"; //string that specificies the begining of the save location(savedirectory)
 
         public static Menue menu = new Menue(); //Instance of the Menu class
@@ -28,7 +27,6 @@ namespace ConsoleApp1
             Console.WindowHeight = Console.LargestWindowHeight;     
             Console.Title = "Scuffed Adventures";
 
-            Console.WriteLine(username);
             if(!Directory.Exists(savdir))
             {
                 Directory.CreateDirectory(savdir);
@@ -40,6 +38,7 @@ namespace ConsoleApp1
             save.player.stat ??= playerManager.specstatman(); //adjusts the players stats through the species statmanager
             save.player.inventory ??= new invenmanager(); //sets inventory 
             save.player.savelocation ??= new Savelocation(); //sets the save location
+            save.player.npc ??= new NPC(); //sets NPC bool shit idk
             save.progress ??= new Progress(); //sets the the progress stuff
             save.invsave();
             Console.ForegroundColor = ConsoleColor.Red;

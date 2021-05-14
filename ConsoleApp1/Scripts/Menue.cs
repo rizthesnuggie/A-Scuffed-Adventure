@@ -40,7 +40,10 @@ namespace ConsoleApp1.Scripts
                     var savchoice = Console.ReadLine();
                     if (int.TryParse(savchoice.ToUpper(), out int choice))
                     {
-                        savey = Program.savejr[choice - 1];
+                        if(choice <= Program.savejr.Length && choice > 0)
+                        {
+                            savey = Program.savejr[choice - 1];
+                        }
                     }
                     else
                     {

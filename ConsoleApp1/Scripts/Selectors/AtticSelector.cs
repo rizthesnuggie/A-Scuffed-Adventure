@@ -18,12 +18,14 @@ namespace ConsoleApp1.Scripts.Selectors
 
             while (intoAttic)
             {
-                if (Program.save.player.npc.hasSadiehag)
+                if (Program.save.player.npc.hasSadiehag == true)
                 {
                     Console.WriteLine(@"Walking up the stairs you find a nice looking attic with the ""Old Hag"" standing over a workbench, along with an opening to the fireplace and a sword sitting on the mantle. There is also a beautiful painting on the opposite wall.");
+                    Console.ReadLine();
                 }else
                 {
                     Console.WriteLine(@"Walking up the stairs you find a nice looking attic with an old muscular women standing over a workbench, along with an opening to the fireplace and a sword sitting on the mantle. There is also a beautiful painting on the opposite wall.");
+                    Console.ReadLine();
                 }
             }
         }

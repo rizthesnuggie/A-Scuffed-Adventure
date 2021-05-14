@@ -103,11 +103,11 @@ namespace ConsoleApp1.Scripts
 
     public class NPC
     {
-        public bool isSadieok;
-        public bool hasSadieTroll;
-        public bool hasSadiehag;
-        public bool hasanneconvo;
-        public bool istrolldead;
+        public bool isSadieok { get; set; }
+        public bool hasSadieTroll { get; set; }
+        public bool hasSadiehag { get; set; }
+        public bool hasanneconvo { get; set; }
+        public bool istrolldead { get; set; }
 
     }
 

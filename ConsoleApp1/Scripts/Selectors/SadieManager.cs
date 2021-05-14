@@ -38,10 +38,28 @@ namespace ConsoleApp1.Scripts.Selectors
                     case "ASK ABOUT THE UPSTAIRS":
                         PrintSadie("My parents added that when I was a little girl, Now that old hag stays up there most of the time.");
                         Program.save.player.npc.hasSadiehag = true;
+                        Program.save.invsave();
                         break;
                     case "ASK ABOUT THE DOOR DOWNSTAIRS":
-                        PrintSadie("Oh that old thing, It is an old bunker made to withstand the next stellar event. Of course I don't think there wil ever be another but having it doesn't hurt");
+                        PrintSadie("Oh that old thing, It is an old bunker made to withstand the next stellar event. I hear some loud creaking sounds down there from time to time but its probably the house setteling");
+                        bool sadiedownstairsconvo = true;
+                        while (sadiedownstairsconvo)
+                        {
+                            Console.WriteLine("1. Should the house be setteled by now \n2.Leave");
+                            string response2 = invencontroler.betterreadline();
+                            if(response2.ToUpper() == "SHOULD THE HOUSE BE SETTELED BY NOW")
+                            {
+                                Console.Write("Sadie gives you a look... ");
+                                PrintSadie("A house is a house, They all creak. Now stop being paranoid. You sound like her...");
+                                sadiedownstairsconvo = false;
+                            }
+                            else
+                            {
+                                sadiedownstairsconvo = false;
+                            }
+                        }
                         Program.save.player.npc.hasSadieTroll = true;
+                        Program.save.invsave();
                         break;
                     case "LEAVE":
                         sadieconvobool = false;
@@ -50,10 +68,10 @@ namespace ConsoleApp1.Scripts.Selectors
             }
         }
        
-        public static void  PrintSadie(string s)
+        public static void  PrintSadie(string a)
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine(s);
+            Console.WriteLine(a);
             Console.ResetColor();
         }
     }

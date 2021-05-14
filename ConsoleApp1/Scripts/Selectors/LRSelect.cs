@@ -18,7 +18,7 @@ namespace ConsoleApp1.Scripts.Selectors
 
             while (LRbool)
             {
-                Console.WriteLine("Entering the Living room of the hosue you see an old women sitting in an old chair with a large cubbard behind her. The centerpeice of the room is a very old brick fireplace that looks like it hasn't been used in a while and across the room there is a spiral staircase leading upstairs.");
+                Console.WriteLine("Entering the Living room of the hosue you see an old women sitting in an old chair with a large cubbard behind her. The centerpeice of the room is a very old brick fireplace that looks like it hasn't been used in a while, across the room there is a spiral staircase leading upstairs.");
                 for(int i = 0; i< Program.save.progress.LRoptions.Count; i++)
                 {
                     Console.WriteLine((i + 1) + "." + Program.save.progress.LRoptions[i]);
