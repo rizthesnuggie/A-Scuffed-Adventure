@@ -18,36 +18,36 @@ namespace ConsoleApp1.Scripts.Selectors
 
             while (LRbool)
             {
-                Console.WriteLine("Entering the Living room of the hosue you see an old women sitting in an old chair with a large cubbard behind her. The centerpeice of the room is a very old brick fireplace that looks like it hasn't been used in a while, across the room there is a spiral staircase leading upstairs.");
+                Console.WriteLine("Entering the Living room of the hosue you see an old woman sitting in an old chair with a large cubbard behind her. The centerpeice of the room is a very old brick fireplace that looks like it hasn't been used in a while, across the room there is a spiral staircase leading upstairs.");
                 for(int i = 0; i< Program.save.progress.LRoptions.Count; i++)
                 {
                     Console.WriteLine((i + 1) + "." + Program.save.progress.LRoptions[i]);
                 }
-                string response = invencontroler.betterreadline();
+
+                string response = Console.ReadLine();
                 switch (response.ToUpper())
                 {
                     case "GO UPSTAIRS":
-                        goto AfLR;
+                        AtticSelector.intoAttic();
+                        break;
                     case "GO DOWNSTAIRS":
-                        goto CfLR;
-                    case "TALK TO THE OLD WOMEN":
+                        CaveSelect.intocave();
+                        break;
+                    case "TALK TO THE OLD WOMAN":
                         SadieManager.SadieConvo();
                         break;
                     case "RAID THE CUBBARD":
                         bool meatpic = true;
                         while (meatpic)
                         {
-                            if (!Program.save.player.inventory.storage.Contains("Meat Slab")) //If the player does not have the meat slab in inventory then they can interact
+                            //If the player does not have the meat slab in inventory then they can interact
+                            if (!Program.save.player.inventory.storage.Contains("Meat Slab")) 
                             {
                                 Console.WriteLine("Checking out the old cubbard you find a large slab of meat that looks like it has been there a while. Do you want to take it?[y/n]");
-                                string answer = invencontroler.betterreadline();
+                                string answer = Console.ReadLine();
                                 if (answer.ToUpper() == "Y")
                                 {
-                                    Console.ForegroundColor = ConsoleColor.Cyan;
-                                    Console.WriteLine("Meat Slab has been added to your inventory");
-                                    Program.save.player.inventory.storage.Add("Meat Slab");
-                                    Program.save.invsave();
-                                    Console.ResetColor();
+                                    Equipable.addinven("Meat Slab");
                                     meatpic = false;
                                 }
                                 else if (answer.ToUpper() == "N")
@@ -56,7 +56,8 @@ namespace ConsoleApp1.Scripts.Selectors
                                     meatpic = false;
                                 }
                             }
-                            else if (Program.save.player.inventory.storage.Contains("Meat Slab")) //If they do it leaves the loop
+                            //If they do it leaves the loop
+                            else if (Program.save.player.inventory.storage.Contains("Meat Slab"))
                             {
                                 Console.WriteLine("You have already checked out this cubbard");
                                 Program.save.invsave();
@@ -69,8 +70,6 @@ namespace ConsoleApp1.Scripts.Selectors
                         break;
                 }
             }
-        AfLR: AtticSelector.intoAttic(); ;
-        CfLR: CaveSelect.intocave();
         }
     }
 }

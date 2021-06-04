@@ -61,6 +61,17 @@ namespace ConsoleApp1.Scripts
                     }
                     savey = new tosave(saveorsome);
                 }
+                else if (answer.ToUpper().Equals("N"))
+                {
+                    new Rainbow().PrintRainbow("NEW SAVE");
+                    Console.ResetColor();
+                    int saveorsome = 0;
+                    if (Program.savejr != null)
+                    {
+                        saveorsome = Program.savejr.Length;
+                    }
+                    savey = new tosave(saveorsome);
+                }
                 else if (answer.ToUpper().Equals("Y"))
                 {
                     Console.WriteLine("No save detected. Press any key to continue.");

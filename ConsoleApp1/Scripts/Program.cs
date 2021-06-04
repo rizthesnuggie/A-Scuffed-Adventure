@@ -2,6 +2,7 @@
 using ConsoleApp1.Scripts.Selectors;
 using System;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 
 
@@ -9,49 +10,108 @@ namespace ConsoleApp1
 {
     class Program
     {
-        public static tosave[] savejr; //Array of the saves that are read from the save file location
+        //Array of the saves that are read from the save file location
+        public static tosave[] savejr;
 
-        public static string savdir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\ScuffedAdventures"; //string that specificies the begining of the save location(savedirectory)
+        //Gets the file directory and sets it to a string
+        public static string savdir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\ScuffedAdventures";
 
-        public static Menue menu = new Menue(); //Instance of the Menu class
-        public static tosave save; //instance of the tosave class
-        public static PlayerManager playerManager = new PlayerManager(); //instance of the PlayerManager class
-        public static Discordmanager discordmanager = new Discordmanager(); //instance of the Discordmanager class
+        //This Section makes instances for other scripts
+        public static Menue menu = new Menue();
+        public static tosave save;
+        public static PlayerManager playerManager = new PlayerManager();
+        public static Discordmanager discordmanager = new Discordmanager();
 
-        public static bool playerinteractable = true; //bool for player's abiliity to interact with the envoirnment, currently serves no purpose
+        //bool for player's abiliity to interact with the envoirnment, currently serves no purpose
+        public static bool playerinteractable = true;
 
         static void Main(string[] args)
         {
-            //This section is for setting the programs size and title settings
+            //Console size and settings
             Console.WindowWidth = Console.LargestWindowWidth; 
             Console.WindowHeight = Console.LargestWindowHeight;     
             Console.Title = "Scuffed Adventures";
 
-            if(!Directory.Exists(savdir))
+            //Makes the save file directory if it doesn't exsist. Cheesy I know
+            if (!Directory.Exists(savdir))
             {
                 Directory.CreateDirectory(savdir);
             }
+            bool gamebool = true;
+            while (gamebool)
+            {
+                //Does player setup
+                savejr = tosave.inread();
+                save = menu.Menu();
+                save.player ??= Characterselctor.charselect();
+                save.player.stat ??= playerManager.specstatman();
+                save.player.inventory ??= new invenmanager();
+                save.player.savelocation ??= new Savelocation();
+                save.progress ??= new Progress();
+                save.progress.npc ??= new NPC();
+                save.invsave();
 
-            savejr = tosave.inread(); //Sets the save file array equal to whatever is read from the file location
-            save = menu.Menu(); //Honestly no clue
-            save.player ??= Characterselctor.charselect(); //if the information is null(no save file) then it will run the player through the character and outfit selector 
-            save.player.stat ??= playerManager.specstatman(); //adjusts the players stats through the species statmanager
-            save.player.inventory ??= new invenmanager(); //sets inventory 
-            save.player.savelocation ??= new Savelocation(); //sets the save location
-            save.player.npc ??= new NPC(); //sets NPC bool shit idk
-            save.progress ??= new Progress(); //sets the the progress stuff
-            save.invsave();
+                if (save.progress.npc.isgameover)
+                {
+                    Console.WriteLine("This save is complete pls make a new one");
+                }
+                else if (!save.progress.npc.isgameover)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Save Selected");
+                    Console.ResetColor();
+                    Console.WriteLine("Begin?");
+                    Console.ReadLine();
+
+                    //enables discord rpc
+                    var autoupdate = discordmanager.autoupdateRPC();
+
+                    Savemanager.gotopoint();
+                    gamebool = false;
+                }
+            }
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Save Selected");
+            Console.WriteLine("How the actual fuck did you get here. Its literelly impossible, fuck you.");
             Console.ResetColor();
-            Console.WriteLine("Begin?");
-            Console.ReadLine();
-            var autoupdate = discordmanager.autoupdateRPC(); //Activates the discord rich presence
-            //var inventorythread = invencontroler.Inventorythread(); //This in theory controls the inventory system should it change to be at a specific button press
-            Savemanager.gotopoint();
-
-
-
+            Console.OutputEncoding = Encoding.UTF8;
+            Console.WriteLine(@"
+__________████████_____██████
+_________█░░░░░░░░██_██░░░░░░█
+________█░░░░░░░░░░░█░░░░░░░░░█
+_______█░░░░░░░███░░░█░░░░░░░░░█
+_______█░░░░███░░░███░█░░░████░█
+______█░░░██░░░░░░░░███░██░░░░██
+_____█░░░░░░░░░░░░░░░░░█░░░░░░░░███
+____█░░░░░░░░░░░░░██████░░░░░████░░█
+____█░░░░░░░░░█████░░░████░░██░░██░░█
+___██░░░░░░░███░░░░░░░░░░█░░░░░░░░███
+__█░░░░░░░░░░░░░░█████████░░█████████
+_█░░░░░░░░░░█████_████___████_█████___█
+_█░░░░░░░░░░█______█_███__█_____███_█___█
+█░░░░░░░░░░░░█___████_████____██_██████
+░░░░░░░░░░░░░█████████░░░████████░░░█
+░░░░░░░░░░░░░░░░█░░░░░█░░░░░░░░░░░░█
+░░░░░░░░░░░░░░░░░░░░██░░░░█░░░░░░██
+░░░░░░░░░░░░░░░░░░██░░░░░░░███████
+░░░░░░░░░░░░░░░░██░░░░░░░░░░█░░░░░█
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█
+░░░░░░░░░░░█████████░░░░░░░░░░░░░░██
+░░░░░░░░░░█▒▒▒▒▒▒▒▒███████████████▒▒█
+░░░░░░░░░█▒▒███████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█
+░░░░░░░░░█▒▒▒▒▒▒▒▒▒█████████████████
+░░░░░░░░░░████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█
+░░░░░░░░░░░░░░░░░░██████████████████
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█
+██░░░░░░░░░░░░░░░░░░░░░░░░░░░██
+▓██░░░░░░░░░░░░░░░░░░░░░░░░██
+▓▓▓███░░░░░░░░░░░░░░░░░░░░█
+▓▓▓▓▓▓███░░░░░░░░░░░░░░░██
+▓▓▓▓▓▓▓▓▓███████████████▓▓█
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█
+▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓█");
             Console.ReadKey();
         }
     }

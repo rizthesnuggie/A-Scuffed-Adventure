@@ -5,11 +5,6 @@ using System.Linq;
 
 namespace ConsoleApp1.Scripts
 {
-    public class Outfit
-    {
-        public string name { get; set; }
-    }
-
     public class Character
     {
         public string name { get; set; }
@@ -17,8 +12,12 @@ namespace ConsoleApp1.Scripts
         public Outfit outfit {get; set;}
         public Stat stat { get; set; }
         public invenmanager inventory { get; set; }
-        public NPC npc { get; set; }
         public Savelocation savelocation { get; set; }
+    }
+
+    public class Outfit
+    {
+        public string name { get; set; }
     }
 
     public class Stat
@@ -32,7 +31,7 @@ namespace ConsoleApp1.Scripts
         {
             get { return realhealth; } 
             set { if (value > 100)
-                    realhealth = 100;
+                    realhealth = 80;
                 else if (value < 0)
                     realhealth = 0;
                 else
@@ -91,6 +90,8 @@ namespace ConsoleApp1.Scripts
                     realcharisma = value;
             }
         }
+
+        public int PlayerDeaths { get; set; }
     }
     
     public class invenmanager
@@ -104,10 +105,14 @@ namespace ConsoleApp1.Scripts
     public class NPC
     {
         public bool isSadieok { get; set; }
+        public bool isAnneok { get; set; }
         public bool hasSadieTroll { get; set; }
         public bool hasSadiehag { get; set; }
         public bool hasanneconvo { get; set; }
         public bool istrolldead { get; set; }
+        public bool istrolldealt { get; set; }
+        public bool hasplayerfalled { get; set; }
+        public bool isgameover { get; set; }
 
     }
 
@@ -118,12 +123,19 @@ namespace ConsoleApp1.Scripts
 
     public class Progress
     {
-        public List<string> SpeciesDes { get; set; } = new List<string> { "The race of Men are an intresting bunch. They are known for their capacity for incredible violence but also amazing feats of strength and camaraderie and loyalty", "The dawrves are always involded in the talk of the land. Known for their Strength, Charisma, and powerful greed. They can be good friends but also terrible enimies", "Elfs are the most recluse bunch in the land. Known for their Speed, Stealth, and terrible social skills. It's always good to have an elf at your side, even if you can't talk to them", "Press any key to continue" };
-        public List<string> OutfitDes { get; set; } = new List<string> { "The Shiny Armor is a good all around armor. It allows you to have a moderate amount of protection with some benifits towards speed *and* stealth.", "The Brute Armor is a tough armor made for only the strongest of warriors. It offers a large amount of protection but at the cost of speed *and* stealth.", "The Shadow Cloak is a Hooded Cloak made in darkness. It allows its wearer to blend into the shadows but to be stealthy you must give up some strength *and* speed", "The Light Armor is the best option for an adventurer always on the go. It's lightness allows for quicker movement but at the cost of strength *and* stealth", "Press any key to continue" };
+        public NPC npc { get; set; }
         public List<string> SadieConvo { get; set; } = new List<string> { "Greet her", "Ask about the house", "Ask about the upstairs", "Ask about the door downstairs", "Leave" };
-        public List<string> AnneConvo { get; set; } = new List<string> { };
+        public List<string> AnneConvo { get; set; } = new List<string> { "Greet her","Ask about other woman","Ask about the painting","Talk about life","Leave" };
+        public List<string> AnneConvo2 { get; set; } = new List<string> { "Want me to check it out?", "Have you investigated it?", "Move on." };
+        public List<string> TrollConvo { get; set; } = new List<string> {"How did you get here","What is your name","Leave"};
+        
         public List<string> caveoptions { get; set; } = new List<string> { "Go upstairs", "Try to open the door", "Feel around the room to find more stuff" };
-        public List<string> LRoptions { get; set; } = new List<string> { "Go upstairs", "Go downstairs","Talk to the old women","Raid the cubbard","Check the fireplace",};
-        public List<string> AtticOptions { get; set; } = new List<string> { };
+        public List<string> LRoptions { get; set; } = new List<string> { "Go upstairs", "Go downstairs","Talk to the old woman","Raid the cubbard","Check the fireplace",};
+        public List<string> AtticOptions { get; set; } = new List<string> { "Go downstairs", "Talk to the woman", "Check the fireplace","Approach the Painting" };
+        public List<string> DungeonOptionsA { get; set; } = new List<string> { "[try]Talk to the troll","Attack the troll","Check the metal door"};
+        public List<string> DungeonOptionsD1 { get; set; } = new List<string> {"Search the troll", "Check the metal door" };
+        public List<string> DungeonOptionsD2 { get; set; } = new List<string> { "Ask the troll for stuff", "Check the metal door" };
+
+        public List<string> FPoptions { get; set; } = new List<string> { "Take the sword","Try to take the sheild","Leave" };
     }
  }

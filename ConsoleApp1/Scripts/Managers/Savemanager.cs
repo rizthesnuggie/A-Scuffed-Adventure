@@ -14,23 +14,23 @@ namespace ConsoleApp1.Scripts
             Console.Clear();
             if (string.IsNullOrEmpty(Program.save.player.savelocation.currentlocal))
             {
-                goto cavesave;
+                CaveSelect.intocave();
             }
             switch (Program.save.player.savelocation.currentlocal.ToUpper())
             {
                 case "CAVE":
-                    goto cavesave;
+                    CaveSelect.intocave();
+                    break;
                 case "LIVINGROOM":
-                    goto LRsave;
+                    LRSelect.intoLR();
+                    break;
                 case "DUNGEON":
-                    goto Dsave;
+                    DungeonSelect.intoDungeon();
+                    break;
                 case "ATTIC":
-                    goto Asave;
+                    AtticSelector.intoAttic();
+                    break;
             }
-        cavesave: CaveSelect.intocave();
-        LRsave: LRSelect.intoLR();
-        Dsave: DungeonSelect.intoDungeon();
-        Asave: AtticSelector.intoAttic();
         }
     }
 }

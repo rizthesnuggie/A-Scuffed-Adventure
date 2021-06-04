@@ -12,7 +12,7 @@ namespace ConsoleApp1.Scripts
             bool charloop = true;
             while (charloop)
             {
-                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Please select a Species");
                 Console.ForegroundColor = ConsoleColor.Gray;
                 Console.WriteLine("1. Human");
@@ -118,14 +118,10 @@ namespace ConsoleApp1.Scripts
                         break;
                     case "4":
                     case "INFO ON SPECIES":
-                        for (int i = 0; i < specdes.SpeciesDes.Count; i++)
-                        {
-                            Console.WriteLine(specdes.SpeciesDes[i]);
-                        }
-                        Console.ReadLine();
+                        Program.playerManager.speciesdescriptor();
                         break;
                     case "OWO":
-                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Are you a cat?[y/n]: ");
                         Console.ForegroundColor = ConsoleColor.Gray;
                         y = Console.ReadLine();
@@ -174,7 +170,7 @@ namespace ConsoleApp1.Scripts
             Outfit outfit1 = new Outfit();
             while (outloop)
             {
-                Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Outfit");
                 Console.ForegroundColor = ConsoleColor.Gray;
                 Console.WriteLine("1. Shiny Armor");
@@ -243,11 +239,7 @@ namespace ConsoleApp1.Scripts
                         break;
                     case "5":
                     case "INFO ON DESRIPTION":
-                        for (int i = 0; i < outdes.SpeciesDes.Count; i++)
-                        {
-                            Console.WriteLine(outdes.SpeciesDes[i]);
-                        }
-                        Console.ReadLine();
+                        Program.playerManager.outfitdescriptor();
                         break;
                     default:
                         Console.WriteLine("You did not chose an option. Do you want to try agian?[y/n]");

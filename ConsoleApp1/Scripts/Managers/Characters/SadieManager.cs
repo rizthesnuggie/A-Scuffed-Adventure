@@ -13,12 +13,20 @@ namespace ConsoleApp1.Scripts.Selectors
 
             while (sadieconvobool)
             {
-                Console.WriteLine("You approach the old women");
+                if (Program.save.progress.npc.istrolldead)
+                {
+                    if (!Program.save.progress.npc.isSadieok)
+                    {
+                        Program.save.progress.SadieConvo.Remove("I dealt a the troll in the dungeon");
+                        Program.save.progress.SadieConvo.Add("I dealt with a troll in the dungeon");
+                    }
+                }
+                Console.WriteLine("You approach the old woman");
                 for (int i = 0; i < Program.save.progress.SadieConvo.Count; i++)
                 {
                     Console.WriteLine((i + 1) + "." + Program.save.progress.SadieConvo[i]);
                 }
-                string response = invencontroler.betterreadline();
+                string response = Console.ReadLine();
                 switch (response.ToUpper())
                 {
                     case "GREET HER":
@@ -37,7 +45,7 @@ namespace ConsoleApp1.Scripts.Selectors
                         break;
                     case "ASK ABOUT THE UPSTAIRS":
                         PrintSadie("My parents added that when I was a little girl, Now that old hag stays up there most of the time.");
-                        Program.save.player.npc.hasSadiehag = true;
+                        Program.save.progress.npc.hasSadiehag = true;
                         Program.save.invsave();
                         break;
                     case "ASK ABOUT THE DOOR DOWNSTAIRS":
@@ -46,11 +54,13 @@ namespace ConsoleApp1.Scripts.Selectors
                         while (sadiedownstairsconvo)
                         {
                             Console.WriteLine("1. Should the house be setteled by now \n2.Leave");
-                            string response2 = invencontroler.betterreadline();
-                            if(response2.ToUpper() == "SHOULD THE HOUSE BE SETTELED BY NOW")
+                            string response2 = Console.ReadLine();
+                            if (response2.ToUpper() == "SHOULD THE HOUSE BE SETTELED BY NOW")
                             {
                                 Console.Write("Sadie gives you a look... ");
-                                PrintSadie("A house is a house, They all creak. Now stop being paranoid. You sound like her...");
+                                PrintSadie("A house is a house, They all creak. Now stop being paranoid. You sound like her");
+                                Program.save.progress.npc.hasSadieTroll = true;
+                                Program.save.invsave();
                                 sadiedownstairsconvo = false;
                             }
                             else
@@ -58,11 +68,25 @@ namespace ConsoleApp1.Scripts.Selectors
                                 sadiedownstairsconvo = false;
                             }
                         }
-                        Program.save.player.npc.hasSadieTroll = true;
-                        Program.save.invsave();
                         break;
                     case "LEAVE":
                         sadieconvobool = false;
+                        break;
+                    case "I DEALT WITH A TROLL IN THE DUNGEON":
+                        Program.save.progress.npc.isSadieok = true;
+                        Program.save.invsave();
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.Write("Oh dear, A troll??");
+                        if (Program.save.progress.npc.isAnneok)
+                        {
+                            Console.WriteLine("Good thing you told her first... Why don't you meet us in the basement");
+                        }
+                        if (!Program.save.progress.npc.isAnneok)
+                        {
+                            Console.WriteLine("You should go tell that woman upstairs, hurry! Lets meet in the Basement.");
+                        }
+                        Console.ResetColor();
+                        Program.save.progress.SadieConvo.Remove("I dealt a the troll in the dungeon");
                         break;
                 }
             }
