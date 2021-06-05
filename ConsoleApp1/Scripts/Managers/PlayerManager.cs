@@ -145,7 +145,7 @@ namespace ConsoleApp1.Scripts
                 Program.save.player.inventory.storage.Add(addtoinven);
                 Program.save.invsave();
                 Console.ForegroundColor = ConsoleColor.Cyan;
-                Console.WriteLine(addtoinven + "has been added to your inventory");
+                Console.WriteLine(addtoinven + " has been added to your inventory");
                 Console.ResetColor();
             }
         }

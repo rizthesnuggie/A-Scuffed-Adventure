@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 using ConsoleApp1.Scripts.Managers.Characters;
 
 namespace ConsoleApp1.Scripts.Selectors
@@ -77,9 +78,10 @@ namespace ConsoleApp1.Scripts.Selectors
                                     }
                                     Program.save.progress.FPoptions.Remove("Take the sword");
                                     break;
-                                case "TRY TO TAKE THE SHEILD":
-                                    Console.WriteLine("You try to grab the sheild but the thin piece of wood you are standing on collapses and you fall to the basement");
-                                    Program.save.progress.FPoptions.Remove("Try to take the sheild");
+                                case "TAKE THE SHEILD":
+                                    Console.WriteLine("You try to grab the sheild but the thin piece of wood you are standing on collapses and you fall to the dungeon");
+                                    Thread.Sleep(8000);
+                                    Program.save.progress.FPoptions.Remove("Take the sheild");
                                     Program.save.progress.FPoptions.Add("Jump into the fireplace");
                                     Program.save.invsave();
                                     DungeonSelect.intoDungeon();

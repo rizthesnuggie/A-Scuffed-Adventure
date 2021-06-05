@@ -55,15 +55,7 @@ namespace ConsoleApp1.Scripts
                         break;
 
                 }
-                string[] RPCMsg =
-                {
-                    Program.save.player.stat.Playerhealth.ToString() + "Hp",
-                    Program.save.player.stat.PlayerDeaths.ToString() + "Deaths",
-                };
-                foreach (string mesg in RPCMsg)
-                {
-                    client.UpdateState(mesg);
-                }
+                client.UpdateState(Program.save.player.stat.Playerhealth.ToString() + " Hp");
                 await Task.Delay(4269);
             }
         }

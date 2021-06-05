@@ -30,7 +30,7 @@ namespace ConsoleApp1
             //Console size and settings
             Console.WindowWidth = Console.LargestWindowWidth; 
             Console.WindowHeight = Console.LargestWindowHeight;     
-            Console.Title = "Scuffed Adventures";
+            Console.Title = "A Scuffed Adventure";
 
             //Makes the save file directory if it doesn't exsist. Cheesy I know
             if (!Directory.Exists(savdir))

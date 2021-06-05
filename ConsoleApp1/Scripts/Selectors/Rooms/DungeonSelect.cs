@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Text;
 using ConsoleApp1.Scripts.Managers.Characters;
 
+
 namespace ConsoleApp1.Scripts.Selectors
 {
     class DungeonSelect
@@ -166,18 +167,6 @@ namespace ConsoleApp1.Scripts.Selectors
                             break;
                         case "ATTACK THE TROLL":
                             TrollManager.TrollKombat();
-                            break;
-                        case "CHECK THE METAL DOOR":
-                            Console.WriteLine("Running past the troll you slam into the metal door. It opens and you can see the basement");
-                            Program.save.progress.DungeonOptionsA.Remove("Check the metal door");
-                            Program.save.progress.DungeonOptionsA.Add("Leave");
-                            Program.save.progress.caveoptions.Remove("Try to open the door");
-                            Program.save.progress.caveoptions.Remove("Enter the dark room");
-                            Program.save.progress.caveoptions.Add("Enter the dark room");
-                            Program.save.invsave();
-                            break;
-                        case "LEAVE":
-                            CaveSelect.intocave();
                             break;
                     }
                 } else if(!Program.save.progress.npc.istrolldealt && !Program.save.progress.npc.istrolldead)

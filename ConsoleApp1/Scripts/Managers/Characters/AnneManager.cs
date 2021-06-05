@@ -12,15 +12,14 @@ namespace ConsoleApp1.Scripts.Managers.Characters
 
             while (AnneConvo)
             {
-                if (Program.save.progress.npc.istrolldead)
+                if (Program.save.progress.npc.istrolldead || Program.save.progress.npc.istrolldealt)
                 {
-                    
-                    if (!Program.save.progress.npc.isAnneok)
+                    Program.save.progress.AnneConvo.Remove("I met a troll in the downstairs");
+                    if (!Program.save.progress.npc.isAnneok )
                     {
-                        Program.save.progress.AnneConvo.Remove("I met a troll in the dungeon");
-                        Program.save.progress.AnneConvo.Add("I met a troll in the dungeon");
+                        Program.save.progress.AnneConvo.Add("I met a troll downstairs");
                     }
-
+                    Program.save.invsave();
                 }
                 for (int i = 0; i<Program.save.progress.AnneConvo.Count; i++)
                 {
@@ -68,12 +67,11 @@ namespace ConsoleApp1.Scripts.Managers.Characters
                                     bool atrollbool1 = true;
                                     while (atrollbool1)
                                     {
-                                        Console.WriteLine("1. Want me to check it out? \n2. Move on.");
+                                        Console.WriteLine("1. Want me to check it out \n2. Move on");
                                         string answer2 = Console.ReadLine();
                                         switch (answer2.ToUpper())
                                         {
                                             case "WANT ME TO CHECK IT OUT":
-                                            case "WANT ME TO CHECK IT OUT?":
                                                 PrintAnne("If you really want to dear, I don't know how you could get down there though");
                                                 atrollbool1 = false;
                                                 break;
@@ -115,11 +113,12 @@ namespace ConsoleApp1.Scripts.Managers.Characters
                     case "LEAVE":
                         AnneConvo = false;
                         break;
-                    case "I MET A TROLL IN THE DUNGEON":
+                    case "I MET A TROLL DOWNSTAIRS":
+                        Program.save.progress.AnneConvo.Remove("I met a troll in the downstairs");
                         Program.save.progress.npc.isAnneok = true;
                         Program.save.invsave();
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.Write("Wow, A troll??");
+                        Console.Write("Wow, A troll?? ");
                         if (Program.save.progress.npc.isSadieok)
                         {
                             Console.WriteLine("Good thing you already told her, meet us in the Basement.");
@@ -131,6 +130,7 @@ namespace ConsoleApp1.Scripts.Managers.Characters
                         Console.ResetColor();
                         Program.save.progress.AnneConvo.Remove("I met a troll in the dungeon");
                         AnneConvo = false;
+                        Program.save.invsave();
                         break;
                 }
             }

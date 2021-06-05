@@ -13,13 +13,14 @@ namespace ConsoleApp1.Scripts.Selectors
 
             while (sadieconvobool)
             {
-                if (Program.save.progress.npc.istrolldead)
+                if (Program.save.progress.npc.istrolldead || Program.save.progress.npc.istrolldealt)
                 {
+                    Program.save.progress.SadieConvo.Remove("I dealt with a troll downstairs");
                     if (!Program.save.progress.npc.isSadieok)
                     {
-                        Program.save.progress.SadieConvo.Remove("I dealt a the troll in the dungeon");
-                        Program.save.progress.SadieConvo.Add("I dealt with a troll in the dungeon");
+                        Program.save.progress.SadieConvo.Add("I dealt with a troll downstairs");
                     }
+                    Program.save.invsave();
                 }
                 Console.WriteLine("You approach the old woman");
                 for (int i = 0; i < Program.save.progress.SadieConvo.Count; i++)
@@ -72,11 +73,11 @@ namespace ConsoleApp1.Scripts.Selectors
                     case "LEAVE":
                         sadieconvobool = false;
                         break;
-                    case "I DEALT WITH A TROLL IN THE DUNGEON":
+                    case "I DEALT WITH A TROLL DOWNSTAIRS":
                         Program.save.progress.npc.isSadieok = true;
                         Program.save.invsave();
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.Write("Oh dear, A troll??");
+                        Console.Write("Oh dear, A troll?? ");
                         if (Program.save.progress.npc.isAnneok)
                         {
                             Console.WriteLine("Good thing you told her first... Why don't you meet us in the basement");
@@ -87,6 +88,7 @@ namespace ConsoleApp1.Scripts.Selectors
                         }
                         Console.ResetColor();
                         Program.save.progress.SadieConvo.Remove("I dealt a the troll in the dungeon");
+                        Program.save.invsave();
                         break;
                 }
             }
