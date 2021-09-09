@@ -14,7 +14,7 @@ namespace ConsoleApp1.Scripts.Managers.Characters
             {
                 if (Program.save.progress.npc.istrolldead || Program.save.progress.npc.istrolldealt)
                 {
-                    Program.save.progress.AnneConvo.Remove("I met a troll in the downstairs");
+                    Program.save.progress.AnneConvo.Remove("I met a troll 5downstairs");
                     if (!Program.save.progress.npc.isAnneok )
                     {
                         Program.save.progress.AnneConvo.Add("I met a troll downstairs");

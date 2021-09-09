@@ -13,13 +13,15 @@ namespace ConsoleApp1.Scripts.Selectors
 
             if (Program.save.progress.npc.isAnneok && Program.save.progress.npc.isSadieok)
             {
+                SadieManager.PrintSadie("Thank you for dealing with that troll, I hope to see you again");
                 Program.save.invsave();
+                Thread.Sleep(1000);
                 Program.save.progress.npc.isgameover = true;
                 Program.save.invsave();
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("You have finished my game, Thank you for playing");
                 Console.ResetColor();
-                Thread.Sleep(1000);
+                Thread.Sleep(2000);
                 var process = new ProcessStartInfo() { FileName = "https://www.youtube.com/watch?v=xvFZjo5PgG0", UseShellExecute = true };
                 Process.Start(process);
                 Environment.Exit(1);
